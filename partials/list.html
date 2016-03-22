@@ -1,0 +1,42 @@
+<section class="artistpage">
+
+    <div class="search">
+        <h1>Artist Directory</h1>
+        <label>search: </label>
+        <!-- we came up with the model name query -->
+        <input ng-model="query" placeholder="Search for artists" autofocus>
+
+        <label class="formgroup">by:
+            <select ng-model="artistOrder">
+                <!-- name and reknown are json fields -->
+                <option value="name">Name</option>
+                <option value="reknown">Reknown</option>
+            </select>
+        </label>
+
+        <label class="formgroup">
+            <input type="radio" ng-model="direction" name="direction" checked>
+            ascending
+        </label>
+        <label class="formgroup">
+            <input type="radio" ng-model="direction" name="direction" value="reverse">
+            descending
+        </label>
+    </div>
+
+    <!-- artists is our data, filtered by query and artistOtrder ng-models in above search fields, radiobox option formgroups -->
+    <!-- ng-show artists only if query is true. query being the model for the search field. if want this, add this to ul tag: ng-show="query" -->
+    <ul class="artistlist" >
+        <li ng-animate="'animate'" class="artist cf" ng-repeat="item in artists | limitTo: 25 | filter: query | orderBy: artistOrder:direction ">
+            <!-- indexOf is 0, 1, 2... -->
+            <a href="#/details/{{artists.indexOf(item)}}">
+                <img ng-src="images/{{item.shortname}}_tn.jpg" alt="Photo of {{item.name}}"/> <!-- ng-src prevents loading before angular -->
+                <div class="info">
+                    <h2>{{item.name}}</h2>
+                    <h3>{{item.reknown}}</h3>
+                </div>
+            </a>
+        </li>
+    </ul> <!-- end artistlist -->
+
+</section>

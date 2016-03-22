@@ -1,0 +1,56 @@
+<!-- SEE LYNDA.COM NOTES AT BOTTOM OF PAGE  -->
+
+<!DOCTYPE html>
+<!-- whole page, ie all html controlled by ng-app directive which points to our controller in myApp -->
+<html ng-app="myApp">
+    <head>
+        <meta charset="utf-8">
+        <title>Angular Demo</title>
+
+        <!-- SCRIPTS -->
+        <script src="lib/angular/angular.min.js"></script>
+        <script src="lib/angular/angular-route.min.js"></script>
+        <script src="lib/angular/angular-animate.min.js"></script>
+
+        <script src="js/app.js"></script> <!-- my App -->
+        <script src="js/controllers.js"></script>
+
+        <!-- STYLES  -->
+        <link rel="stylesheet" href="css/style.css" media="screen" title="no title" charset="utf-8">
+
+    </head>
+    <body>
+
+        <!-- this div tied to a controller  -->
+        <!-- author json object is inside $scope variable but no need use it below since tied to MyController  -->
+        <div class="main" ng-view>
+
+    </body>
+</html>
+
+
+
+<!-- LYNDA.COM NOTES
+
+MVC MODEL: the data
+VIEW: hold {{expressions in curly braces}}
+CONTROLLER: controls int. between M and V
+MODULES: sep js files per task.
+directives
+data binding: ng-model
+FILTERS:
+
+SERVICE: to access external data. piece of code to do a task. $http replaces ajax for example.
+
+modules
+NGROUTE: has $routeProvider service: config when at ""/url" > templ is... controller is...
+
+controllers: sep file. appCtrl obj controller method with args for name of controller, and array of global objects like $http and $scope so we use their methods ie $http.get('js/data.json')... in the ctrlr.
+
+1. INSTALL ANGULAR: download > stable minified and get cdn link. (won't need redownload if from other site with angular)
+2. SCRIPT LINK IN HEAD NOT BODY
+
+-->
+
+<!-- <input type="next" ng-model="name" placeholder="watch your text appear courtesy of ng-model">
+<h2>Welcome {{name}}</h2> -->

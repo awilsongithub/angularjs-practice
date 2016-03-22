@@ -1,0 +1,24 @@
+<!-- DetailsController handles this template at
+artists and whichItem are vars put on scope in ctrlr -->
+
+<section class="artistinfo">
+    <!-- access to model called artist -->
+    <div class="artist cf" ng-model="artist">
+        <!-- refernec the variables with curly brackets
+        whichItem is the index of an item in the artists array. both of which were defined in the ctrlr. the index is taken from the params. we setup the list template so the link on each artist in list goes to details/itemId of that artist -->
+
+        <!-- navigation to prev/next artist in array with vars defined in ctrlr -->
+        <a class="btn btn-left" href="#/details/{{prevItem}}">&lt;</a>
+        <a class="btn btn-left" href="#/details/{{nextItem}}">&gt;</a>
+
+        <h1>{{artists[whichItem].name}}</h1>
+        <div class="info">
+            <h3>{{artists[whichItem].reknown}}</h3>
+            <img ng-src="images/{{artists[whichItem].shortname}}_tn.jpg" alt="Photo of {{artists[whichItem].name}}" />
+            <div class="bio">{{artists[whichItem].bio}}</div>
+        </div>
+    </div>
+    <!-- /#url syntax when calling defined angular route -->
+    <!-- ??? but link worked for me only with #/url ??? -->
+    <a href="#/list">&laquo; Back to search</a>
+</section>
